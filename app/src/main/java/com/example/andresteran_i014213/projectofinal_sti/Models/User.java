@@ -3,9 +3,6 @@ package com.example.andresteran_i014213.projectofinal_sti.Models;
 public class User {
 
     private String username;
-    private String phone;
-    private String website;
-
 
     public String getUsername() {
         return username;
@@ -15,20 +12,17 @@ public class User {
         this.username = username;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getWebsite() {
-        return website;
-    }
+    private String email;
 
-    public void setWebsite(String website) {
-        this.website = website;
-    }
+
+
 }
 

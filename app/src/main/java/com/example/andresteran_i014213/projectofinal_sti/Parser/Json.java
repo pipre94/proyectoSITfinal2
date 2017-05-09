@@ -19,11 +19,8 @@ public class Json {
 
             User usuario = new User();
             usuario.setUsername(item.getString("username"));
-            usuario.setPhone(item.getString("phone"));
-            usuario.setWebsite(item.getString("website"));
-
+            usuario.setEmail(item.getString("Email"));
             myUser.add(usuario);
-
         }
 
         return myUser;
