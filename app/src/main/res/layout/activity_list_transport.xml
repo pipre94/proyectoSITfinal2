@@ -7,11 +7,23 @@
     android:layout_height="match_parent"
     tools:context="com.example.andresteran_i014213.projectofinal_sti.ListTransport">
 
+    <include layout="@layout/actionbar_toolbar"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <Button
+            android:id="@+id/boton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cargar datos de Usuarios"
+            android:onClick="onClickButton"
+            android:layout_marginBottom="12dp"/>
+
 
         <ProgressBar
             android:id="@+id/loader"

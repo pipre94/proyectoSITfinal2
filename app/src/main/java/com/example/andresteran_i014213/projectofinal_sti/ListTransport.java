@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class ListTransport extends AppCompatActivity {
 
 
     ProgressBar loader;
+    Button boton;
     RecyclerView myRecycler;
     List<User> myUser;
     UserAdapter myAdapter;
@@ -35,9 +37,10 @@ public class ListTransport extends AppCompatActivity {
         setContentView(R.layout.activity_list_transport);
 
         loader = (ProgressBar) findViewById(R.id.loader);
+        boton = (Button) findViewById(R.id.boton);
         myRecycler = (RecyclerView) findViewById(R.id.myRecycler);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         myRecycler.setLayoutManager(linearLayoutManager);
     }
 

@@ -35,7 +35,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         //
         holder.myNameUser.setText(myUser.get(position).getUsername());
-        holder.myEmail.setText(myUser.get(position).getEmail());
+
 
     }
 
@@ -47,15 +47,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView myNameUser;
-        TextView myEmail;
-        TextView myCont;
+        //TextView myEmail;
+        //TextView myCont;
 
         // Constructor
         public ViewHolder(View item)  {
             super(item);
             //
             myNameUser = (TextView) item.findViewById(R.id.id_txt_username_cad);
-            myEmail= (TextView) item.findViewById(R.id.id_card_time);
 
         }
     }
