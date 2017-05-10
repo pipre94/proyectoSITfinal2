@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.andresteran_i014213.projectofinal_sti.Views.ContainerActivity;
+import com.example.andresteran_i014213.projectofinal_sti.Views.CreateAccountActivity;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -14,7 +17,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onShowAccount(View view){
-        Intent intent = new Intent(this, ListTransport.class);
+        Intent intent = new Intent(this, CreateAccountActivity.class);
         startActivity(intent);
     }
+
+    public void goCreateContainer(View view){
+        Intent intent = new Intent(this, ContainerActivity.class);
+        startActivity(intent);
+    }
+
+
 }

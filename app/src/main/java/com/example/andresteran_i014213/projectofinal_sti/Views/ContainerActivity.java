@@ -1,29 +1,33 @@
-package com.example.andresteran_i014213.projectofinal_sti;
+package com.example.andresteran_i014213.projectofinal_sti.Views;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.support.annotation.IdRes;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.andresteran_i014213.projectofinal_sti.Adapters.UserAdapter;
+import com.example.andresteran_i014213.projectofinal_sti.HttpManager;
 import com.example.andresteran_i014213.projectofinal_sti.Models.User;
 import com.example.andresteran_i014213.projectofinal_sti.Parser.Json;
+import com.example.andresteran_i014213.projectofinal_sti.R;
+import com.example.andresteran_i014213.projectofinal_sti.Views.Fragments.HomeFragment;
+import com.example.andresteran_i014213.projectofinal_sti.Views.Fragments.ProfileFragment;
+import com.example.andresteran_i014213.projectofinal_sti.Views.Fragments.SearchFragment;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
 import java.io.IOException;
 import java.util.List;
 
-public class ListTransport extends AppCompatActivity {
-
+public class ContainerActivity extends AppCompatActivity {
 
     ProgressBar loader;
     RecyclerView myRecycler;
@@ -33,15 +37,59 @@ public class ListTransport extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_transport);
-        showTolbar("Listar Usuarios",true);
+        setContentView(R.layout.activity_container);
 
         loader = (ProgressBar) findViewById(R.id.loader);
         myRecycler = (RecyclerView) findViewById(R.id.myRecycler);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        myRecycler.setLayoutManager(linearLayoutManager);
+       // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+       // myRecycler.setLayoutManager(linearLayoutManager);
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.id_bottombar);
+        // para establcer la pnatalla d home
+        bottomBar.setDefaultTab(R.id.tab_home);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                switch (tabId){
+                    case R.id.tab_search:
+                        SearchFragment searchFragment = new SearchFragment();
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.id_container_fragment, searchFragment)
+                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                .addToBackStack(null)
+                                .commit();
+                        break;
+                    case R.id.tab_home:
+                        HomeFragment homeFragment = new HomeFragment();
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.id_container_fragment, homeFragment)
+                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                .addToBackStack(null)
+                                .commit();
+                        break;
+                    case R.id.tab_profile:
+                        ProfileFragment profileFragment = new ProfileFragment();
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.id_container_fragment, profileFragment)
+                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                .addToBackStack(null)
+                                .commit();
+                        break;
+
+                }
+
+            }
+        });
+
+
     }
+
+
+
 
 
     // Metodo para validar la conexion a internet
@@ -59,15 +107,16 @@ public class ListTransport extends AppCompatActivity {
     // Medodo para manejar el evento del item del menu
     public void onClickButton(){
         if (isOnLine()){
-            MyTask task = new MyTask();
-            task.execute("https://jsonplaceholder.typicode.com/users");
-            //Toast.makeText(this, "Funciona", Toast.LENGTH_SHORT).show();
+            //MyTask task = new MyTask();
+            //task.execute("https://jsonplaceholder.typicode.com/users");
+            Toast.makeText(this, "Funciona", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this, "Sin conexión", Toast.LENGTH_SHORT).show();
         }
     }
 
     // Tarea asincrona para obtener los datos desde internet
+
     private class MyTask extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
@@ -118,8 +167,7 @@ public class ListTransport extends AppCompatActivity {
         }
     }
 
-    // Metodo para para inicializar el menu en el Toolbar
-    @Override
+  /*  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return true;
@@ -133,14 +181,15 @@ public class ListTransport extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-        //return super.onOptionsItemSelected(item);
     }
+
 
     private void showTolbar(String title, boolean upButton) {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
-    }
+    }*/
+
 
 }

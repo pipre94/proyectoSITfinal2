@@ -1,8 +1,10 @@
-package com.example.andresteran_i014213.projectofinal_sti;
+package com.example.andresteran_i014213.projectofinal_sti.Views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+
+import com.example.andresteran_i014213.projectofinal_sti.R;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
