@@ -19,7 +19,7 @@ public class Json {
 
             User usuario = new User();
             usuario.setUsername(item.getString("username"));
-            usuario.setEmail(item.getString("Email"));
+            usuario.setEmail(item.getString("email"));
             myUser.add(usuario);
         }
 

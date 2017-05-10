@@ -3,6 +3,7 @@ package com.example.andresteran_i014213.projectofinal_sti.Models;
 public class User {
 
     private String username;
+    private String email;
 
     public String getUsername() {
         return username;
@@ -20,7 +21,7 @@ public class User {
         this.email = email;
     }
 
-    private String email;
+
 
 
 

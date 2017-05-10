@@ -8,10 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -26,7 +26,6 @@ public class ListTransport extends AppCompatActivity {
 
 
     ProgressBar loader;
-    Button boton;
     RecyclerView myRecycler;
     List<User> myUser;
     UserAdapter myAdapter;
@@ -35,12 +34,12 @@ public class ListTransport extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_transport);
+        showTolbar("Listar Usuarios",true);
 
         loader = (ProgressBar) findViewById(R.id.loader);
-        boton = (Button) findViewById(R.id.boton);
         myRecycler = (RecyclerView) findViewById(R.id.myRecycler);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         myRecycler.setLayoutManager(linearLayoutManager);
     }
 
@@ -62,6 +61,7 @@ public class ListTransport extends AppCompatActivity {
         if (isOnLine()){
             MyTask task = new MyTask();
             task.execute("https://jsonplaceholder.typicode.com/users");
+            //Toast.makeText(this, "Funciona", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this, "Sin conexión", Toast.LENGTH_SHORT).show();
         }
@@ -126,8 +126,21 @@ public class ListTransport extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        onClickButton();
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.menu_cargar_datos:
+                onClickButton();
+                return (true);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //return super.onOptionsItemSelected(item);
+    }
+
+    private void showTolbar(String title, boolean upButton) {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 
 }
