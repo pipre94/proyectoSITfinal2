@@ -57,6 +57,8 @@ public class HomeFragment extends Fragment {
 
         showTolbar(getResources().getString(R.string.txt_title_toolbar_Container),true);
         setHasOptionsMenu(true); // para poder poner toolbar  en fragmento
+
+        onClickButton();
         return view;
     }
 
