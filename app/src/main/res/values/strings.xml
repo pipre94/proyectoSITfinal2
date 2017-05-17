@@ -20,4 +20,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_title_toolbar_Container">Transporte SIT</string>
+    <string name="id_btn_map_seattle">Seattle</string>
+    <string name="id_btn_map_dublin">Dublin</string>
+    <string name="id_btn_map_tokyo">Tokyo</string>
 </resources>

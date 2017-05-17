@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment {
     RecyclerView myRecycler;
     List<User> myUser;
     UserAdapter myAdapter;
+
     public HomeFragment() {
         // Required empty public constructor
 
