@@ -23,4 +23,10 @@
     <string name="id_btn_map_seattle">Seattle</string>
     <string name="id_btn_map_dublin">Dublin</string>
     <string name="id_btn_map_tokyo">Tokyo</string>
+    <string name="str_btn_profile_route">Rutas</string>
+    <string name="str_btn_profile_picks">Fotos</string>
+    <string name="txt_title_toolbar_profile">Perfil</string>
+    <string name="str_profile_name">Keneth</string>
+    <string name="str_profile_lastName">Riascos</string>
+    <string name="str_profile_address">Crr 2 # 26 -14</string>
 </resources>
