@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ProjectoFinal_STI</string>
+    <string name="username">User</string>
+    <string name="password">Password</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_help">¿Don´t you have an account?,</string>
+    <string name="txt_link">Create Account</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="user">Usser</string>
+    <string name="passwordConfirm">Confirm Password</string>
+    <string name="txt_accept">Accept</string>
+    <string name="txt_title_toolbar">Create Account</string>
+    <string name="id_txt_username_cad">Andres Felipe</string>
+    <string name="str_tab_search">Search</string>
+    <string name="str_tab_home">Home</string>
+    <string name="str_tab_profile">Profile</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_title_toolbar_Container">Transport SIT</string>
+    <string name="id_btn_map_seattle">Seattle</string>
+    <string name="id_btn_map_dublin">Dublin</string>
+    <string name="id_btn_map_tokyo">Tokyo</string>
+    <string name="str_btn_profile_route">Rutas</string>
+    <string name="str_btn_profile_picks">Fotos</string>
+    <string name="txt_title_toolbar_profile">Profile</string>
+    <string name="str_profile_name">Keneth</string>
+    <string name="str_profile_lastName">Riascos</string>
+    <string name="str_profile_address">Crr 2 # 26 -14</string>
+
+
+</resources>
