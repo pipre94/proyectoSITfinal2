@@ -27,6 +27,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+
         showTolbar(getResources().getString(R.string.txt_title_toolbar),true);
 
         createAccount = (Button) findViewById(R.id.btn_account);
