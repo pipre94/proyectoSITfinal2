@@ -14,7 +14,11 @@ import com.example.andresteran_i014213.projectofinal_sti.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
+public class UserAdapter {
+    /*
+
+
+        extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     List<User> myUser = new ArrayList<>();
     Context context;
@@ -57,4 +61,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         }
     }
+
+    */
 }

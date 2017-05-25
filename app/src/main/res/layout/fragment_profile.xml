@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Direccion:"/>
+                    android:text="@string/str_profile_txt_address"/>
 
                 <TextView
                     android:id="@+id/str_profile_address"

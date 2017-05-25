@@ -31,6 +31,7 @@
     <string name="str_profile_name">Keneth</string>
     <string name="str_profile_lastName">Riascos</string>
     <string name="str_profile_address">Crr 2 # 26 -14</string>
+    <string name="str_profile_txt_address">Address</string>
 
 
 </resources>

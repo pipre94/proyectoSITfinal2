@@ -129,12 +129,13 @@ public class HomeFragment extends Fragment {
             cargarDatos();
             loader.setVisibility(View.GONE);
         }
+
         public void cargarDatos() {
 
             // Crear un objeto de tipo "PostAdapter" y retorna el item de mi layout (item.xml)
-            myAdapter = new UserAdapter(getActivity().getApplicationContext(), myUser);
+            //myAdapter = new UserAdapter(getActivity().getApplicationContext(), myUser);
             // inyectar el item en mi RecyclerView
-            myRecycler.setAdapter(myAdapter);
+            //myRecycler.setAdapter(myAdapter);
 
         }
     }

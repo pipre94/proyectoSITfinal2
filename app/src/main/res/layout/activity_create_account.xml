@@ -28,10 +28,11 @@
                 android:theme="@style/TextLabelAccount">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/email"
+                    android:id="@+id/id_account_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email" />
+                    android:hint="@string/email"
+                    android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -40,10 +41,11 @@
                 android:theme="@style/TextLabelAccount">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/name"
+                    android:id="@+id/id_account_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/name" />
+                    android:hint="@string/name"
+                    android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -52,10 +54,11 @@
                 android:theme="@style/TextLabelAccount">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/usuer"
+                    android:id="@+id/id_account_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/user" />
+                    android:hint="@string/user"
+                    android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -64,11 +67,12 @@
                 android:theme="@style/TextLabelAccount">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/paswordAcount"
+                    android:id="@+id/id_account_paswordAcount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
-                    android:hint="@string/password" />
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -77,11 +81,12 @@
                 android:theme="@style/TextLabelAccount">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/paswordConfirm"
+                    android:id="@+id/id_account_paswordConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
-                    android:hint="@string/passwordConfirm" />
+                    android:inputType="textPassword"
+                    android:hint="@string/passwordConfirm"
+                    android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
             <Button
