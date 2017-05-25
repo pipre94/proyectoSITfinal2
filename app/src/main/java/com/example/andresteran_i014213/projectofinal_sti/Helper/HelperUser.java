@@ -18,17 +18,17 @@ public class HelperUser extends SQLiteOpenHelper {
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_USERNAME = "username";
     public static final String COLUMN_PASSWORD = "password";
-    public static final String COLUMN_EMAIL = "email";
 
     public static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_USERS + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_NAME + " TEXT, " +
-                    COLUMN_USERNAME + " TEXT, " +
                     COLUMN_EMAIL + " TEXT" +
-                    COLUMN_PASSWORD + " TEXT, " +
+                    COLUMN_USERNAME + " TEXT" +
+                    COLUMN_PASSWORD+ " TEXT" +
                     ")";
 
     public HelperUser(Context context) {

@@ -57,7 +57,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    //createData();
+                    createData();
                     Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
                 }
             }
@@ -72,7 +72,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 
-    /*private void createData(){
+    private void createData(){
         User user = new User();
         user.setName(name.getText().toString());
         user.setEmail(email.getText().toString());
@@ -80,6 +80,5 @@ public class CreateAccountActivity extends AppCompatActivity {
         user.setPassword(password.getText().toString());
         dataUser.create(user);
     }
-*/
 
 }

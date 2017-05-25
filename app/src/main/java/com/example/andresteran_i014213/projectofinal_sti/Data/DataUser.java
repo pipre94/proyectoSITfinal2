@@ -15,15 +15,14 @@ import java.util.List;
 
 public class DataUser {
 
-
     SQLiteOpenHelper dbHelper;
     SQLiteDatabase database;
 
     private static final String[] allColumns = {
             HelperUser.COLUMN_ID,
             HelperUser.COLUMN_NAME,
-            HelperUser.COLUMN_USERNAME,
             HelperUser.COLUMN_EMAIL,
+            HelperUser.COLUMN_USERNAME,
             HelperUser.COLUMN_PASSWORD
     };
 
@@ -42,8 +41,8 @@ public class DataUser {
     public User create(User user){
         ContentValues values = new ContentValues();
         values.put(HelperUser.COLUMN_NAME, user.getName());
-        values.put(HelperUser.COLUMN_USERNAME, user.getUsername());
         values.put(HelperUser.COLUMN_EMAIL, user.getEmail());
+        values.put(HelperUser.COLUMN_USERNAME, user.getUsername());
         values.put(HelperUser.COLUMN_PASSWORD, user.getPassword());
 
         long insertId = database.insert(HelperUser.TABLE_USERS, null, values);
@@ -59,9 +58,9 @@ public class DataUser {
             while (cursor.moveToNext()){
                 User user = new User();
                 user.setId(cursor.getLong(cursor.getColumnIndex(HelperUser.COLUMN_ID)));
-                user.setUsername(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_NAME)));
-                user.setUsername(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_USERNAME)));
+                user.setName(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_NAME)));
                 user.setEmail(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_EMAIL)));
+                user.setUsername(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_USERNAME)));
                 user.setPassword(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_PASSWORD)));
 
                 users.add(user);
@@ -74,6 +73,6 @@ public class DataUser {
         Cursor cursor = database.rawQuery("select id,name,email from users", null);
         List<User> users = cursorToList(cursor);
         return users;
-
     }
+
 }
