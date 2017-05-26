@@ -43,6 +43,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(username.getText().toString().equals("")||password.getText().toString().equals("")
                         ||passwordConfirm.getText().toString().equals("")
                         ||name.getText().toString().equals("")||email.getText().toString().equals(""))
@@ -59,6 +60,11 @@ public class CreateAccountActivity extends AppCompatActivity {
                 {
                     createData();
                     Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
+                    username.setText("");
+                    name.setText("");
+                    email.setText("");
+                    password.setText("");
+                    passwordConfirm.setText("");
                 }
             }
         });

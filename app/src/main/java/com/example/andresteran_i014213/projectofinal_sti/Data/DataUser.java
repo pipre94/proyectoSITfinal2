@@ -5,8 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.example.andresteran_i014213.projectofinal_sti.Helper.HelperUser;
+import com.example.andresteran_i014213.projectofinal_sti.LoginActivity;
 import com.example.andresteran_i014213.projectofinal_sti.Models.User;
 
 import java.util.ArrayList;
@@ -70,10 +72,29 @@ public class DataUser {
         return users;
     }
 
+
+
     public List<User> findAll(){
         Cursor cursor = database.rawQuery("select id,name,email from users", null);
         List<User> users = cursorToList(cursor);
         return users;
     }
+
+    public User findUser(String username, String password){
+
+        User userFind = new User();
+        Cursor cursor = database.rawQuery("select id,name,email,username,password from users where username='ken'", null);
+        if(cursor.moveToFirst()) {
+            userFind.setId(cursor.getLong(cursor.getColumnIndex(HelperUser.COLUMN_ID)));
+            userFind.setName(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_NAME)));
+            userFind.setEmail(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_EMAIL)));
+            userFind.setUsername(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_USERNAME)));
+            userFind.setPassword(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_PASSWORD)));
+            userFind.setStatus(false);
+        }
+        return userFind;
+    }
+
+
 
 }

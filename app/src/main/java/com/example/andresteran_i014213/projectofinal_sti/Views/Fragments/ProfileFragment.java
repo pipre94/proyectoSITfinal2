@@ -20,8 +20,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.andresteran_i014213.projectofinal_sti.Data.DataUser;
+import com.example.andresteran_i014213.projectofinal_sti.Models.User;
 import com.example.andresteran_i014213.projectofinal_sti.R;
+
+import org.w3c.dom.Text;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +36,10 @@ import com.example.andresteran_i014213.projectofinal_sti.R;
 public class ProfileFragment extends Fragment {
 
     View view;
+    List<User> userList;
+    DataUser dataUser;
+    TextView name;
+    User user;
 
     public ProfileFragment() {
     }
@@ -40,9 +51,18 @@ public class ProfileFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        name = (TextView) view.findViewById(R.id.id_txt_profile_name);
+
+        dataUser = new DataUser(getActivity());
+        dataUser.open();
+        userList = dataUser.findAll();
+
+        user = userList.get(1);
+
+        //name.setText(user.getUsername());*/
+
         showTolbar(getResources().getString(R.string.txt_title_toolbar_profile),true);
         setHasOptionsMenu(true);
-
         return view ;
     }
 
