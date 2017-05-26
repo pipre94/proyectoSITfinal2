@@ -5,15 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.andresteran_i014213.projectofinal_sti.Data.DataUser;
 import com.example.andresteran_i014213.projectofinal_sti.Views.ContainerActivity;
 import com.example.andresteran_i014213.projectofinal_sti.Views.CreateAccountActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
+    DataUser dataUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        dataUser = new DataUser(this);
+        dataUser.open();
     }
 
     public void onShowAccount(View view){

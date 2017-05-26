@@ -78,6 +78,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         user.setEmail(email.getText().toString());
         user.setUsername(username.getText().toString());
         user.setPassword(password.getText().toString());
+        user.setStatus(false);
         dataUser.create(user);
     }
 

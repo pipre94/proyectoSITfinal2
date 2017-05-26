@@ -44,6 +44,7 @@ public class DataUser {
         values.put(HelperUser.COLUMN_EMAIL, user.getEmail());
         values.put(HelperUser.COLUMN_USERNAME, user.getUsername());
         values.put(HelperUser.COLUMN_PASSWORD, user.getPassword());
+        values.put(HelperUser.COLUMN_STATUS, user.isStatus());
 
         long insertId = database.insert(HelperUser.TABLE_USERS, null, values);
 

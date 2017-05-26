@@ -21,6 +21,7 @@ public class HelperUser extends SQLiteOpenHelper {
     public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_USERNAME = "username";
     public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_STATUS = "status";
 
     public static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_USERS + " (" +
@@ -28,7 +29,8 @@ public class HelperUser extends SQLiteOpenHelper {
                     COLUMN_NAME + " TEXT, " +
                     COLUMN_EMAIL + " TEXT" +
                     COLUMN_USERNAME + " TEXT" +
-                    COLUMN_PASSWORD+ " TEXT" +
+                    COLUMN_PASSWORD + " TEXT" +
+                    COLUMN_STATUS + " BOOLEAN" +
                     ")";
 
     public HelperUser(Context context) {
