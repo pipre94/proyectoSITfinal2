@@ -40,14 +40,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(usernameLogin.getText().toString().equals("")||passwordLogin.getText().toString().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "Field Vaccant", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.txt_field_vaccant), Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    findUser = new String[3];
+                    findUser = new String[2];
                     findUser = dataUser.findUser(usernameLogin.getText().toString(),passwordLogin.getText().toString());
-                    if (findUser[0].toString()==(usernameLogin.getText().toString())){
-                        Toast.makeText(getApplicationContext(), "EXITO", Toast.LENGTH_SHORT).show();
-                    }else if (findUser[2]=="no"){Toast.makeText(getApplicationContext(), "Mierda", Toast.LENGTH_SHORT).show();}
+                    if (findUser[0].equals((usernameLogin.getText().toString())) && findUser[1].equals((passwordLogin.getText().toString())) ){
+                        Toast.makeText(getApplicationContext(), getString(R.string.txt_validation_login), Toast.LENGTH_SHORT).show();
+                    }else
+                    {Toast.makeText(getApplicationContext(), getString(R.string.txt_no_validation_login) , Toast.LENGTH_SHORT).show();}
 
                 }
             }

@@ -52,18 +52,18 @@ public class CreateAccountActivity extends AppCompatActivity {
                         ||passwordConfirm.getText().toString().equals("")
                         ||name.getText().toString().equals("")||email.getText().toString().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "Field Vaccant", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.txt_field_vaccant), Toast.LENGTH_SHORT).show();
                 }
                 // check if both password matches
                 else if(!password.getText().toString().equals(passwordConfirm.getText().toString()))
                 {
-                    Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.txt_password_validation), Toast.LENGTH_SHORT).show();
 
                 }
                 else
                 {
                     createData();
-                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),getString(R.string.txt_succesfully_account), Toast.LENGTH_SHORT).show();
                     listarusuarios = dataUser.findAll();
                     adapterUser = new UserAdapter(getApplicationContext(), listarusuarios);
                     lista.setAdapter(adapterUser);
@@ -86,6 +86,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         user.setName(name.getText().toString());
         user.setEmail(email.getText().toString());
         user.setUsername(username.getText().toString());
+        user.setPassword(password.getText().toString());
+        user.setStatus("false");
+
         dataUser.create(user);
     }
 

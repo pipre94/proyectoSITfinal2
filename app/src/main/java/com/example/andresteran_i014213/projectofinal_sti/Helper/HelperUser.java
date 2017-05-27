@@ -12,7 +12,7 @@ import android.util.Log;
 public class HelperUser extends SQLiteOpenHelper {
 
     private static final String LOGTAG = "LOGTAG";
-    private static final String DATABASE_NAME = "users";
+    public static final String DATABASE_NAME = "users";
     private static final int DATABASE_VERSION = 1;
 
     public static final String TABLE_USERS = "users";
@@ -20,18 +20,23 @@ public class HelperUser extends SQLiteOpenHelper {
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_USERNAME = "username";
+    public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_STATUS = "status";
 
     public static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_USERS + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_NAME + " TEXT, " +
-                    COLUMN_EMAIL + " TEXT" +
-                    COLUMN_USERNAME + " TEXT" +
+                    COLUMN_EMAIL + " TEXT," +
+                    COLUMN_USERNAME + " TEXT," +
+                    COLUMN_PASSWORD + " TEXT," +
+                    COLUMN_STATUS + " TEXT" +
                     ")";
 
     public HelperUser(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -41,7 +46,7 @@ public class HelperUser extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXIST "+TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_USERS);
         onCreate(db);
     }
 }

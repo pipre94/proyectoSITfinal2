@@ -32,6 +32,11 @@
     <string name="str_profile_lastName">Riascos</string>
     <string name="str_profile_address">Crr 2 # 26 -14</string>
     <string name="str_profile_txt_address">Address</string>
+    <string name="txt_field_vaccant">Empty Spaces</string>
+    <string name="txt_validation_login">Welcome</string>
+    <string name="txt_no_validation_login">User and Password incorrect</string>
+    <string name="txt_password_validation">Password does not match</string>
+    <string name="txt_succesfully_account">Account Successfully Created</string>
 
 
 </resources>

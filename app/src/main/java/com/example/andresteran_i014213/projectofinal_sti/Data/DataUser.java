@@ -44,7 +44,9 @@ public class DataUser {
         ContentValues values = new ContentValues();
         values.put(HelperUser.COLUMN_NAME, user.getName());
         values.put(HelperUser.COLUMN_EMAIL, user.getEmail());
-        //values.put(HelperUser.COLUMN_USERNAME, user.getUsername());
+        values.put(HelperUser.COLUMN_USERNAME, user.getUsername());
+        values.put(HelperUser.COLUMN_PASSWORD, user.getPassword());
+        values.put(HelperUser.COLUMN_STATUS, user.getStatus());
 
         long insertId = database.insert(HelperUser.TABLE_USERS, null, values);
 
@@ -60,7 +62,9 @@ public class DataUser {
                 user.setId(cursor.getLong(cursor.getColumnIndex(HelperUser.COLUMN_ID)));
                 user.setName(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_NAME)));
                 user.setEmail(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_EMAIL)));
-                //user.setUsername(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_USERNAME)));
+                user.setUsername(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_USERNAME)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_PASSWORD)));
+                user.setStatus(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_STATUS)));
 
                 users.add(user);
             }
@@ -69,22 +73,28 @@ public class DataUser {
     }
 
     public List<User> findAll(){
-        Cursor cursor = database.rawQuery("select id,name,email from users", null);
+        Cursor cursor = database.rawQuery("select * from users", null);
         List<User> users = cursorToList(cursor);
         return users;
     }
 
-    public String[] findUser (String name, String email){
-        String[] findUser = new String[3];
-        Cursor cursor = database.rawQuery("select name,email from users where name = '"+name+"' and email = '"+email+"'", null);
+    public String[] findUser (String username, String password){
+
+        String[] findUser = new String[2];
+        Cursor cursor = database.rawQuery("select username,password from users where username = '"+username+"' and " +
+                "password = '"+password+"'", null);
         if (cursor.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
             do {
-                findUser[0]= cursor.getString(0);
+                findUser[0] = cursor.getString(0);
                 findUser[1] = cursor.getString(1);
-            } while(cursor.moveToNext());
-        }else findUser[2]="no";
+            } while (cursor.moveToNext());
+        }else{
+            findUser[0] =" ";
+            findUser[1] = " ";
+        }
         return findUser;
+
     }
 
 }

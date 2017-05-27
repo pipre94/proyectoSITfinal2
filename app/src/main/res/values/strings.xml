@@ -30,4 +30,9 @@
     <string name="str_profile_lastName">Riascos</string>
     <string name="str_profile_address">Crr 2 # 26 -14</string>
     <string name="str_profile_txt_address">Direccion</string>
+    <string name="txt_field_vaccant">Espacios Vacíos</string>
+    <string name="txt_validation_login">Bienvenido</string>
+    <string name="txt_no_validation_login">Usuario y Contraseña Erroneos</string>
+    <string name="txt_password_validation">Password diferente</string>
+    <string name="txt_succesfully_account">Cuenta Creada Exitosamente</string>
 </resources>
