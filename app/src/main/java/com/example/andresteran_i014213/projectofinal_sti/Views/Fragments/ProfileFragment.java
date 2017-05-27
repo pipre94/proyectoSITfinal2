@@ -53,11 +53,11 @@ public class ProfileFragment extends Fragment {
 
         name = (TextView) view.findViewById(R.id.id_txt_profile_name);
 
-        dataUser = new DataUser(getActivity());
-        dataUser.open();
-        userList = dataUser.findAll();
+        //dataUser = new DataUser(getActivity());
+        //dataUser.open();
+        //userList = dataUser.findAll();
 
-        user = userList.get(1);
+        //user = userList.get(1);
 
         //name.setText(user.getUsername());*/
 

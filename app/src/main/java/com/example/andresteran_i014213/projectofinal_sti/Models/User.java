@@ -3,27 +3,9 @@ package com.example.andresteran_i014213.projectofinal_sti.Models;
 public class User {
 
     private long id;
-    private String username;
     private String email;
     private String name;
-    private String password;
-    private  boolean status;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    private String username;
 
     public long getId() {
         return id;
@@ -41,20 +23,20 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public boolean isStatus() {
-        return status;
+    public String getUsername() {
+        return username;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
 

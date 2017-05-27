@@ -17,10 +17,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.andresteran_i014213.projectofinal_sti.Adapters.UserAdapter;
+import com.example.andresteran_i014213.projectofinal_sti.Data.DataUser;
 import com.example.andresteran_i014213.projectofinal_sti.HttpManager;
 import com.example.andresteran_i014213.projectofinal_sti.Models.User;
 import com.example.andresteran_i014213.projectofinal_sti.Parser.Json;
@@ -37,8 +39,11 @@ public class HomeFragment extends Fragment {
     View view;
     ProgressBar loader;
     RecyclerView myRecycler;
+    ListView lista;
     List<User> myUser;
     UserAdapter myAdapter;
+    UserAdapter adapterUser;
+    DataUser dataUser;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -51,18 +56,28 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         view=inflater.inflate(R.layout.fragment_home, container, false);
         loader = (ProgressBar) view.findViewById(R.id.loader);
-        myRecycler = (RecyclerView) view.findViewById(R.id.myRecycler);
+        //myRecycler = (RecyclerView) view.findViewById(R.id.myRecycler);
+        lista = (ListView) view.findViewById(R.id.id_lv_mylist);
+        dataUser = new DataUser(getActivity());
+        dataUser.open();
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        myRecycler.setLayoutManager(linearLayoutManager);
+
+
+        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        //myRecycler.setLayoutManager(linearLayoutManager);
 
         showTolbar(getResources().getString(R.string.txt_title_toolbar_Container),true);
         setHasOptionsMenu(true); // para poder poner toolbar  en fragmento
-        onClickButton();
+        //onClickButton();
+
+        myUser = dataUser.findAll();
+        adapterUser = new UserAdapter(getActivity().getApplicationContext(), myUser);
+        lista.setAdapter(adapterUser);
+
         return view;
     }
 
-
+    /*
     // codigo
 
     // Metodo para validar la conexion a internet
@@ -137,8 +152,8 @@ public class HomeFragment extends Fragment {
             // inyectar el item en mi RecyclerView
             //myRecycler.setAdapter(myAdapter);
 
-        }
-    }
+            }
+        }*/
 
     //codigo
 
@@ -152,7 +167,7 @@ public class HomeFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_cargar_datos:
-                onClickButton();
+                //onClickButton();
                 return (true);
             default:
                 return super.onOptionsItemSelected(item);

@@ -17,24 +17,23 @@ import java.util.List;
 
 public class UserAdapter extends BaseAdapter{
 
+    List<User> userList = new ArrayList<>();
     LayoutInflater layoutInflater;
     Context context;
 
-    public UserAdapter (Context context){
-
+    public UserAdapter(Context context, List<User> userList) {
         this.context = context;
+        this.userList = userList;
         layoutInflater = LayoutInflater.from(this.context);
-
     }
 
-    @Override
     public int getCount() {
-        return 0;
+        return userList.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public User getItem(int position) {
+        return userList.get(position);
     }
 
     @Override
@@ -44,6 +43,32 @@ public class UserAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        ViewHolder viewHolder;
+        if (convertView == null){
+            convertView = layoutInflater.inflate(R.layout.item, parent, false);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+        }else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+
+        User user = getItem(position);
+        viewHolder.name.setText(user.getName());
+        viewHolder.email.setText(user.getEmail());
+        viewHolder.username.setText(user.getUsername());
+
+        return convertView;
+    }
+
+    public class ViewHolder{
+        TextView name;
+        TextView email;
+        TextView username;
+
+        public ViewHolder(View item) {
+            name = (TextView) item.findViewById(R.id.id_item_name);
+            email = (TextView) item.findViewById(R.id.id_item_email);
+            username = (TextView) item.findViewById(R.id.id_item_username);
+        }
     }
 }

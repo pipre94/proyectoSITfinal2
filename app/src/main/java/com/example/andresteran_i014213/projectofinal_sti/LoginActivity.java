@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText usernameLogin,passwordLogin;
     User userLogin;
     List<User> userList;
+    String[] findUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(usernameLogin.getText().toString().equals("")||passwordLogin.getText().toString().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "Field Vaccant", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Field Vaccant", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    //userList = dataUser.findAll();
-                    //userLogin = dataUser.findUser(usernameLogin.getText().toString(),passwordLogin.getText().toString());
-                    goCreateContainer();
+                    findUser = new String[3];
+                    findUser = dataUser.findUser(usernameLogin.getText().toString(),passwordLogin.getText().toString());
+                    if (findUser[0].toString()==(usernameLogin.getText().toString())){
+                        Toast.makeText(getApplicationContext(), "EXITO", Toast.LENGTH_SHORT).show();
+                    }else if (findUser[2]=="no"){Toast.makeText(getApplicationContext(), "Mierda", Toast.LENGTH_SHORT).show();}
+
                 }
             }
         });

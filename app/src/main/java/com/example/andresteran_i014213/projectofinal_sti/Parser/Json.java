@@ -18,7 +18,7 @@ public class Json {
             JSONObject item = myArray.getJSONObject(i);
 
             User usuario = new User();
-            usuario.setUsername(item.getString("username"));
+            usuario.setName(item.getString("username"));
             usuario.setEmail(item.getString("email"));
             myUser.add(usuario);
         }
