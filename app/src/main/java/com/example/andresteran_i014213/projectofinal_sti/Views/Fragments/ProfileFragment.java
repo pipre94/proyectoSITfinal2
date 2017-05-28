@@ -19,8 +19,10 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.andresteran_i014213.projectofinal_sti.Data.DataUser;
 import com.example.andresteran_i014213.projectofinal_sti.Models.User;
@@ -40,6 +42,7 @@ public class ProfileFragment extends Fragment {
     DataUser dataUser;
     TextView name;
     User user;
+    Button signOff;
 
     public ProfileFragment() {
     }
@@ -50,19 +53,25 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        name = (TextView) view.findViewById(R.id.id_txt_profile_name);
-
-        //dataUser = new DataUser(getActivity());
-        //dataUser.open();
-        //userList = dataUser.findAll();
-
-        //user = userList.get(1);
-
-        //name.setText(user.getUsername());*/
-
         showTolbar(getResources().getString(R.string.txt_title_toolbar_profile),true);
         setHasOptionsMenu(true);
+
+        name = (TextView) view.findViewById(R.id.id_txt_profile_name);
+        signOff = (Button) view.findViewById(R.id.id_btn_fragment_profile_Sign_off);
+
+        dataUser = new DataUser(getActivity());
+        dataUser.open();
+        user = dataUser.checkStatusLogin();
+
+        signOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getActivity().getApplicationContext(), getString(R.string.txt_sign_off), Toast.LENGTH_SHORT).show();
+                 dataUser.statusOff(user.getUsername(),user.getPassword());
+            }
+        });
+
         return view ;
     }
 

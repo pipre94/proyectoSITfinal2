@@ -1,5 +1,6 @@
 package com.example.andresteran_i014213.projectofinal_sti.Views;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.andresteran_i014213.projectofinal_sti.Adapters.UserAdapter;
 import com.example.andresteran_i014213.projectofinal_sti.Data.DataUser;
+import com.example.andresteran_i014213.projectofinal_sti.LoginActivity;
 import com.example.andresteran_i014213.projectofinal_sti.Models.User;
 import com.example.andresteran_i014213.projectofinal_sti.R;
 
@@ -67,7 +69,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     listarusuarios = dataUser.findAll();
                     adapterUser = new UserAdapter(getApplicationContext(), listarusuarios);
                     lista.setAdapter(adapterUser);
-
+                    //goLogginActivity();
                 }
             }
         });
@@ -90,6 +92,11 @@ public class CreateAccountActivity extends AppCompatActivity {
         user.setStatus("false");
 
         dataUser.create(user);
+    }
+
+    public void goLogginActivity(){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
 }

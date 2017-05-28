@@ -97,4 +97,36 @@ public class DataUser {
 
     }
 
+    public void statusOn (String username, String password){
+        database.execSQL("update users set status = 'true' where username = '"+username+"' and " +
+                "password = '"+password+"'");
+    }
+
+    public void statusOff (String username, String password){
+        database.execSQL("update users set status = 'false' where username = '"+username+"' and " +
+                "password = '"+password+"'");
+    }
+
+    public User checkStatusLogin (){
+
+        User userLogin = new User();
+
+        Cursor cursor = database.rawQuery("select * from users where status = 'true'", null);
+        if (cursor.moveToFirst()) {
+            //Recorremos el cursor hasta que no haya más registros
+            do {
+                userLogin.setId(cursor.getLong(cursor.getColumnIndex(HelperUser.COLUMN_ID)));
+                userLogin.setName(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_NAME)));
+                userLogin.setEmail(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_EMAIL)));
+                userLogin.setUsername(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_USERNAME)));
+                userLogin.setPassword(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_PASSWORD)));
+                userLogin.setStatus(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_STATUS)));
+            } while (cursor.moveToNext());
+        } else {
+            userLogin = null;
+        }
+        return userLogin;
+    }
+
+
 }

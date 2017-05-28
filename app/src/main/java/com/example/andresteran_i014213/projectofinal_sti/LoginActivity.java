@@ -35,24 +35,35 @@ public class LoginActivity extends AppCompatActivity {
         dataUser = new DataUser(this);
         dataUser.open();
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(usernameLogin.getText().toString().equals("")||passwordLogin.getText().toString().equals(""))
-                {
-                    Toast.makeText(getApplicationContext(), getString(R.string.txt_field_vaccant), Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    findUser = new String[2];
-                    findUser = dataUser.findUser(usernameLogin.getText().toString(),passwordLogin.getText().toString());
-                    if (findUser[0].equals((usernameLogin.getText().toString())) && findUser[1].equals((passwordLogin.getText().toString())) ){
-                        Toast.makeText(getApplicationContext(), getString(R.string.txt_validation_login), Toast.LENGTH_SHORT).show();
-                    }else
-                    {Toast.makeText(getApplicationContext(), getString(R.string.txt_no_validation_login) , Toast.LENGTH_SHORT).show();}
+        userLogin = dataUser.checkStatusLogin();
+        if(userLogin == null ){
 
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(usernameLogin.getText().toString().equals("")||passwordLogin.getText().toString().equals(""))
+                    {
+                        Toast.makeText(getApplicationContext(), getString(R.string.txt_field_vaccant), Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        findUser = new String[2];
+                        findUser = dataUser.findUser(usernameLogin.getText().toString(),passwordLogin.getText().toString());
+                        if (findUser[0].equals((usernameLogin.getText().toString())) && findUser[1].equals((passwordLogin.getText().toString())) ){
+                            dataUser.statusOn(usernameLogin.getText().toString(),passwordLogin.getText().toString());
+                            Toast.makeText(getApplicationContext(), getString(R.string.txt_validation_login), Toast.LENGTH_SHORT).show();
+                            goCreateContainer();
+                        }else
+                        {Toast.makeText(getApplicationContext(), getString(R.string.txt_no_validation_login) , Toast.LENGTH_SHORT).show();}
+
+                    }
                 }
-            }
-        });
+            });
+
+        }else {
+            goCreateContainer();
+        }
+
+
 
     }
 

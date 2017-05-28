@@ -55,7 +55,7 @@ public class UserAdapter extends BaseAdapter{
         User user = getItem(position);
         viewHolder.name.setText(user.getName());
         viewHolder.email.setText(user.getEmail());
-        viewHolder.username.setText(user.getUsername());
+        viewHolder.username.setText(user.getStatus());
 
         return convertView;
     }

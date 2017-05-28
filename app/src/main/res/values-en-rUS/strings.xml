@@ -37,6 +37,8 @@
     <string name="txt_no_validation_login">User and Password incorrect</string>
     <string name="txt_password_validation">Password does not match</string>
     <string name="txt_succesfully_account">Account Successfully Created</string>
+    <string name="txt_sign_off">Cerrando Sesion</string>
+    <string name="btn_fragment_profile_sign_off">Cerrar Sesion</string>
 
 
 </resources>
