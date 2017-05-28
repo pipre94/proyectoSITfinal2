@@ -39,6 +39,7 @@
     <string name="txt_succesfully_account">Account Successfully Created</string>
     <string name="txt_sign_off">Cerrando Sesion</string>
     <string name="btn_fragment_profile_sign_off">Cerrar Sesion</string>
+    <string name="txt_title_toolbar_search">Busca tu Ruta</string>
 
 
 </resources>

@@ -8,5 +8,19 @@
     android:layout_height="match_parent"
     tools:context="com.example.andresteran_i014213.projectofinal_sti.Views.Fragments.SearchFragment">
 
+    <include layout="@layout/actionbar_toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/id_fragment_list_buses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -33,6 +33,17 @@ public class HelperUser extends SQLiteOpenHelper {
                     COLUMN_STATUS + " TEXT" +
                     ")";
 
+    public static final String TABLE_BUSES = "buses";
+    public static final String COLUMN_ROUTE = "route";
+    public static final String COLUMN_NEIGHBORHOD = "neighborhood";
+
+    public static final String TABLE_CREATE_BUSES =
+            "CREATE TABLE " + TABLE_BUSES + " (" +
+                    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_ROUTE + " TEXT, " +
+                    COLUMN_NEIGHBORHOD + " TEXT" +
+                    ")";
+
     public HelperUser(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -41,12 +52,14 @@ public class HelperUser extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
+        db.execSQL(TABLE_CREATE_BUSES);
         Log.i(LOGTAG, "Tabla de usuarios creada correctamente.");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_BUSES);
         onCreate(db);
     }
 }

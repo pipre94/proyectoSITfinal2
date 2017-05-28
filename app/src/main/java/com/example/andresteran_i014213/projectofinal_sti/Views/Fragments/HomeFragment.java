@@ -38,10 +38,8 @@ public class HomeFragment extends Fragment {
 
     View view;
     ProgressBar loader;
-    RecyclerView myRecycler;
     ListView lista;
     List<User> myUser;
-    UserAdapter myAdapter;
     UserAdapter adapterUser;
     DataUser dataUser;
 

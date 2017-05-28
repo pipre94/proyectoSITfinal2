@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.andresteran_i014213.projectofinal_sti.Helper.HelperUser;
 import com.example.andresteran_i014213.projectofinal_sti.LoginActivity;
+import com.example.andresteran_i014213.projectofinal_sti.Models.Bus;
 import com.example.andresteran_i014213.projectofinal_sti.Models.User;
 
 import java.util.ArrayList;
@@ -24,7 +25,8 @@ public class DataUser {
             HelperUser.COLUMN_ID,
             HelperUser.COLUMN_NAME,
             HelperUser.COLUMN_EMAIL,
-            HelperUser.COLUMN_USERNAME
+            HelperUser.COLUMN_USERNAME,
+            HelperUser.COLUMN_PASSWORD
     };
 
     public DataUser(Context context){
@@ -126,6 +128,38 @@ public class DataUser {
             userLogin = null;
         }
         return userLogin;
+    }
+
+    public Bus createBus(Bus bus){
+        ContentValues values = new ContentValues();
+        values.put(HelperUser.COLUMN_ROUTE, bus.getRoute());
+        values.put(HelperUser.COLUMN_NEIGHBORHOD, bus.getNeighborhood());
+
+        long insertId = database.insert(HelperUser.TABLE_BUSES, null, values);
+
+        bus.setId(insertId);
+        return bus;
+    }
+
+    public List<Bus> cursorToListBus(Cursor cursor){
+        List<Bus> buses = new ArrayList<>();
+        if (cursor.getCount() > 0){
+            while (cursor.moveToNext()){
+                Bus bus = new Bus();
+                bus.setId(cursor.getLong(cursor.getColumnIndex(HelperUser.COLUMN_ID)));
+                bus.setRoute(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_ROUTE)));
+                bus.setNeighborhood(cursor.getString(cursor.getColumnIndex(HelperUser.COLUMN_NEIGHBORHOD)));
+
+                buses.add(bus);
+            }
+        }
+        return buses;
+    }
+
+    public List<Bus> findAllBuses(){
+        Cursor cursor = database.rawQuery("select * from buses", null);
+        List<Bus> buses = cursorToListBus(cursor);
+        return buses;
     }
 
 
