@@ -35,8 +35,6 @@
     <string name="txt_sign_off">Cerrando Sesión</string>
     <string name="btn_fragment_profile_sign_off">Cerrar Sesión</string>
     <string name="txt_title_toolbar_search">Busca tu Ruta</string>
-    <string name="str_profile_names">Usuario1</string>
-    <string name="str_profile_lastNameuser">Apellido usuario</string>
     <string name="Name_user">Pedro Barros</string>
     <string name="str_profile_Info">Usuario del SIT, recidencia acutal en San Juan de Pasto en el barrio Panoramico</string>
     <string name="info_profile2">PROFESIÓN U OFICIO: Estudiante de Ing. de Sistemas en la IU Cesmag</string>
@@ -45,4 +43,7 @@
     <string name="info_profile_Route">RUTA DE PREFERENCIA: C15</string>
     <string name="info_city">CIUDAD DE ORIGEN: San Juan de Pasto</string>
     <string name="info_profile_photo">Fotos</string>
+    <string name="Ventana_search">Buscar</string>
+    <string name="Info_Search">Busca tu ruta del SIT</string>
+    <string name="txt_home_info">Usuarios del sistemas SIT</string>
 </resources>
