@@ -27,6 +27,9 @@
         <activity
             android:name=".Views.CreateAccountActivity"
             android:parentActivityName=".LoginActivity"></activity>
+
+
+
         <activity android:name=".Views.ContainerActivity"></activity>
 
         <meta-data

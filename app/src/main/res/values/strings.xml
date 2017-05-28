@@ -20,9 +20,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_title_toolbar_Container">Transporte SIT</string>
-    <string name="id_btn_map_seattle">Seattle</string>
-    <string name="id_btn_map_dublin">Dublin</string>
-    <string name="id_btn_map_tokyo">Tokyo</string>
     <string name="str_btn_profile_route">Rutas</string>
     <string name="str_btn_profile_picks">Fotos</string>
     <string name="txt_title_toolbar_profile">Perfil</string>
@@ -38,4 +35,14 @@
     <string name="txt_sign_off">Cerrando Sesión</string>
     <string name="btn_fragment_profile_sign_off">Cerrar Sesión</string>
     <string name="txt_title_toolbar_search">Busca tu Ruta</string>
+    <string name="str_profile_names">Usuario1</string>
+    <string name="str_profile_lastNameuser">Apellido usuario</string>
+    <string name="Name_user">Pedro Barros</string>
+    <string name="str_profile_Info">Usuario del SIT, recidencia acutal en San Juan de Pasto en el barrio Panoramico</string>
+    <string name="info_profile2">PROFESIÓN U OFICIO: Estudiante de Ing. de Sistemas en la IU Cesmag</string>
+    <string name="str_profile_data">Informacion Personal</string>
+    <string name="info_profile_born">FECHA DE NACIMIENTO: Marzo 25 de 1997</string>
+    <string name="info_profile_Route">RUTA DE PREFERENCIA: C15</string>
+    <string name="info_city">CIUDAD DE ORIGEN: San Juan de Pasto</string>
+    <string name="info_profile_photo">Fotos</string>
 </resources>
