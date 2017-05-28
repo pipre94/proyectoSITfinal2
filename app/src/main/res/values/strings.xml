@@ -35,6 +35,6 @@
     <string name="txt_no_validation_login">Usuario y Contraseña Erroneos</string>
     <string name="txt_password_validation">Password diferente</string>
     <string name="txt_succesfully_account">Cuenta Creada Exitosamente</string>
-    <string name="txt_sign_off">Cerrando Sesion</string>
-    <string name="btn_fragment_profile_sign_off">Cerrar Sesion</string>
+    <string name="txt_sign_off">Cerrando Sesión</string>
+    <string name="btn_fragment_profile_sign_off">Cerrar Sesión</string>
 </resources>

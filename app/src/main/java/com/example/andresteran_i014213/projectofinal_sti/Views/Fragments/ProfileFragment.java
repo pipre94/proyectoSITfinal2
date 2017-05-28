@@ -1,6 +1,7 @@
 package com.example.andresteran_i014213.projectofinal_sti.Views.Fragments;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -25,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.andresteran_i014213.projectofinal_sti.Data.DataUser;
+import com.example.andresteran_i014213.projectofinal_sti.LoginActivity;
 import com.example.andresteran_i014213.projectofinal_sti.Models.User;
 import com.example.andresteran_i014213.projectofinal_sti.R;
 
@@ -69,6 +71,7 @@ public class ProfileFragment extends Fragment {
 
                 Toast.makeText(getActivity().getApplicationContext(), getString(R.string.txt_sign_off), Toast.LENGTH_SHORT).show();
                  dataUser.statusOff(user.getUsername(),user.getPassword());
+                goLogginActivity();
             }
         });
 
@@ -85,6 +88,10 @@ public class ProfileFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
+    }
+    public void goLogginActivity(){
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
     }
 
 
